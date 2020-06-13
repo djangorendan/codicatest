@@ -1,0 +1,18 @@
+= stylesheet_link_tag 'author'
+
+%h1
+  Книги автора
+  #{@author.name}:
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th(scope="col")= "Image"
+      %th(scope="col")= "Name"
+      %th(scope="col")= "Group"
+  %tbody
+    - @author.books.each do |book|
+      %tr
+        %td= link_to image_tag(book.image.url), book
+        %td= link_to book.name, book
+        %td= book.group.name

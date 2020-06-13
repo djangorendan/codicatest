@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+%html
+  %head
+    - if content_for?(:head)
+      = yield(:head)
+    - else
+      %title= 'Codicatest'
+
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    = render 'patrials/header'
+    .container
+      .row
+        = yield

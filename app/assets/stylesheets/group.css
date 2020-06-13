@@ -1,0 +1,25 @@
+.card-body {
+  padding: .5rem;
+}
+
+p, ul {
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-position: inside;
+  padding-left: .5rem;
+  height: 50px;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+.card-title {
+  height: 50px;
+}
+
+.card {
+  margin-bottom: .7rem;
+}

@@ -1,0 +1,45 @@
+%h1.w-100= "Groups"
+
+= stylesheet_link_tag 'group'
+
+.nav.flex-column.nav-pills.col-2#v-pills-tab(role="tablist" aria-orientation="vertical")
+  %a.nav-link.active#v-pills-all-tab(href="#v-pills-all" data-toggle="pill" role="tab" aria-controls="v-pills-all" aria-selected="true")
+    All
+  - @groups.each do |group|
+    %a.nav-link(id="v-pills-#{group.name}-tab" data-toggle="pill" href="#v-pills-#{group.name}" role="tab" aria-controls="v-pills-#{group.name}" aria-selected="false")
+      = group.name
+
+.tab-content#v-pills-tabContent.col-10
+  .tab-pane.fade.show.active#v-pills-all(role="tabpanel" aria-labelledby="v-pills-all-tab")
+    - @groups.each do |group|
+      %h2= group.name
+      .d-flex.owl-carousel.owl-theme
+        - group.books.each do |book|
+          .card
+            = link_to image_tag(book.image.url, alt: book.name, class: "card-img-top", height: '330px'), book
+            .card-body
+              %h5.card-title
+                = link_to book.name, book
+              %p.card-text= "Authors:"
+              %ul
+                - book.authors.each do |author|
+                  %li.card-text
+                    = link_to author.name, author
+  - @groups.each do |group|
+    .tab-pane.fade(id="v-pills-#{group.name}" role="tabpanel" aria-labelledby="v-pills-#{group.name}-tab")
+      %h2= group.name
+      .row
+        - group.books.each do |book|
+          .col-3
+            .card
+              = link_to image_tag(book.image.url, alt: book.name, class: "card-img-top", height: '330px'), book
+              .card-body
+                %h5.card-title
+                  = link_to book.name, book
+                %p.card-text= "Authors:"
+                %ul
+                  - book.authors.each do |author|
+                    %li.card-text
+                      = link_to author.name, author
+
+= javascript_include_tag 'group'

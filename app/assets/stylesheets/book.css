@@ -1,0 +1,12 @@
+.img {
+  padding-top: .5rem;
+}
+
+.authors {
+  margin-bottom: 0;
+  font-weight: bolder;
+}
+
+p, ul {
+  margin-bottom: .5rem;
+}
