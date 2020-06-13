@@ -1,4 +1,22 @@
 class GroupsController < ApplicationController
+  layout :layout_by_resource
+
+  def main; end
+
+  def set_variables variables
+    variables.each do |key, value|
+      instance_variable_set("@#{key}", value)
+    end
+  end
+
+  def layout_by_resource
+    if devise_controller?
+      "devise"
+    else
+      "application"
+    end
+  end
+
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   # GET /groups
