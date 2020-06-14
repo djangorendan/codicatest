@@ -7,5 +7,3 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create(email: "codicatest@gmail.com", password: "codica", role: "superadmin")
-Admin.create(email: "book_manager@gmail.com", password: "codica", role: "book_manager")
-Admin.create(email: "group_manager@gmail.com", password: "codica", role: "group_manager")

@@ -74,7 +74,7 @@ RailsAdmin.config do |config|
       field :password_confirmation
       field :role, :enum do
         enum do
-          ['superadmin', 'book_manager', 'group_manager', 'author_manager']
+          ['book_manager', 'group_manager', 'author_manager']
         end
         multiple do
           true
