@@ -1,8 +1,8 @@
 = stylesheet_link_tag 'book'
 
-.col-auto.img
-  = image_tag(@book.image.url)
-.col-auto
+.col-xl-3.col-lg-4.col-md-6
+  = image_tag(@book.image.url, class: "img")
+.col-xl-9.col-lg-8.col-md-6
   %h1= @book.name
   %p
     %b= "Group:"
