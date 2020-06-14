@@ -7,12 +7,17 @@ class Ability
     can :read, :all                 # allow everyone to read everything
     can :access, :rails_admin       # only allow admin users to access Rails Admin
     can :read, :dashboard           # allow access to dashboard
-    if admin.role == "superadmin"
-      can :manage, :all             # allow superadmins to do anything
-    elsif admin.role == "book_manager"
-      can :manage, [Book, Author]  # allow managers to do anything to products and users
-    elsif admin.role == "group_manager"
-      can :manage, Group          # allow sales to only update visible products
+    if admin.role.include?("superadmin")
+      can :manage, :all
+    end
+    if admin.role.include?("book_manager")
+      can :manage, Book
+    end
+    if admin.role.include?("group_manager")
+      can :manage, Group
+    end
+    if admin.role.include?("author_manager")
+      can :manage, Author
     end
     # Define abilities for the passed in user here. For example:
     #

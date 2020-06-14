@@ -42,7 +42,13 @@ RailsAdmin.config do |config|
   config.model 'Admin' do
     list do
       field :email
-      field :role
+      field :role do
+        formatted_value do # used in form views
+          value.to_s.delete_prefix('["", "').delete_suffix('"]').delete('"')
+          # value.to_s.split(" ").to_sentence
+        end
+
+      end
     end
     show do
       field :email
@@ -54,7 +60,10 @@ RailsAdmin.config do |config|
       field :password_confirmation
       field :role, :enum do
         enum do
-          ['superadmin', 'book_manager', 'group_manager']
+          ['book_manager', 'group_manager', 'author_manager']
+        end
+        multiple do
+          true
         end
       end
       exclude_fields :reset_password_sent_at, :remember_created_at
@@ -65,7 +74,10 @@ RailsAdmin.config do |config|
       field :password_confirmation
       field :role, :enum do
         enum do
-          ['superadmin', 'book_manager', 'group_manager']
+          ['superadmin', 'book_manager', 'group_manager', 'author_manager']
+        end
+        multiple do
+          true
         end
       end
       exclude_fields :reset_password_sent_at, :remember_created_at
