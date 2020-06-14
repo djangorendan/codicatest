@@ -23,3 +23,7 @@ h5 {
 .card {
   margin-bottom: .7rem;
 }
+
+a.nav-link.mobile {
+  font-size: 2rem;
+}

@@ -2,21 +2,28 @@
 
 = stylesheet_link_tag 'group'
 
-.nav.flex-column.nav-pills.col-2#v-pills-tab(role="tablist" aria-orientation="vertical")
+.nav.flex-column.nav-pills.col-lg-2.d-lg-flex.d-none#v-pills-tab(role="tablist" aria-orientation="vertical")
   %a.nav-link.active#v-pills-all-tab(href="#v-pills-all" data-toggle="pill" role="tab" aria-controls="v-pills-all" aria-selected="true")
     All
   - @groups.each do |group|
     %a.nav-link(id="v-pills-#{group.name}-tab" data-toggle="pill" href="#v-pills-#{group.name}" role="tab" aria-controls="v-pills-#{group.name}" aria-selected="false")
       = group.name
 
-.tab-content#v-pills-tabContent.col-10
+.tab-content#v-pills-tabContent.col-lg-10.col-12
+  .d-lg-none
+    .nav.nav-pills#v-pills-tab(role="tablist")
+      %a.nav-link.mobile.active#v-pills-all-tab(href="#v-pills-all" data-toggle="pill" role="tab" aria-controls="v-pills-all" aria-selected="true")
+        All
+      - @groups.each do |group|
+        %a.nav-link.mobile(id="v-pills-#{group.name}-tab" data-toggle="pill" href="#v-pills-#{group.name}" role="tab" aria-controls="v-pills-#{group.name}" aria-selected="false")
+          = group.name
   .tab-pane.fade.show.active#v-pills-all(role="tabpanel" aria-labelledby="v-pills-all-tab")
     - @groups.each do |group|
       %h2= group.name
       .d-flex.owl-carousel.owl-theme
         - group.books.each do |book|
           .card
-            = link_to image_tag(book.image.url, alt: book.name, class: "card-img-top", height: '330px'), book
+            = link_to image_tag(book.image.url, alt: book.name, class: "card-img-top", height: "350px"), book
             .card-body
               %h5.card-title
                 = link_to book.name, book
@@ -30,9 +37,9 @@
       %h2= group.name
       .row
         - group.books.each do |book|
-          .col-3
+          .col-xl-3.col-lg-4.col-md-6
             .card
-              = link_to image_tag(book.image.url, alt: book.name, class: "card-img-top", height: '330px'), book
+              = link_to image_tag(book.image.url, alt: book.name, class: "card-img-top", height: '350px'), book
               .card-body
                 %h5.card-title
                   = link_to book.name, book
