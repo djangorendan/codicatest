@@ -15,3 +15,6 @@ $('.owl-carousel').owlCarousel({
     }
   }
 })
+
+var width = $(".card-img-top").width();
+$(".card-img-top").height(width*1.5);

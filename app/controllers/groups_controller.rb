@@ -30,6 +30,10 @@ class GroupsController < ApplicationController
   def show
   end
 
+  def task1
+    @a = [22, 11, 33, 44, 66, 55]
+  end
+
   # GET /groups/new
   def new
     @group = Group.new

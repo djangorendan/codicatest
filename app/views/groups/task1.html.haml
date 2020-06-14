@@ -1,0 +1,71 @@
+= content_for :head do
+  %title
+    Задание 1
+
+= stylesheet_link_tag 'task1'
+
+.w-100
+
+  %h1 Простые задачки
+
+  %ol
+    %li В массиве целых чисел поменяйте местами минимальный и максимальный элементы
+
+    - b = @a.min()
+    - b_index = @a.index(b)
+    - c = @a.max()
+    - c_index = @a.index(c)
+    - @a[b_index] = c
+    - @a[c_index] = b
+
+
+    %p.attribute
+      %b
+        Данно:
+    %p.property
+      @a = [22, 11, 33, 44, 66, 55]
+
+    %p.attribute
+      %b
+        Решение:
+
+    %p.property
+      b = @a.min()
+      %br
+      b_index = @a.index(b)
+      %br
+      c = @a.max()
+      %br
+      c_index = @a.index(c)
+      %br
+      @a[b_index] = c
+      %br
+      @a[c_index] = b
+
+    %p.attribute
+      %b
+        Ответ:
+    %p.property
+      @a = #{@a}
+
+    %li В массиве целых чисел найти индексы двух наименьших элементов
+    %p.attribute
+      %b
+        Данно:
+    %p.property
+      @a = #{@a}
+
+    %p.attribute
+      %b
+        Решение:
+    %p.property_2
+      @a.min(2).each do |a|
+      %p.property_3
+        @a.index(a)
+
+    %p.attribute
+      %b
+        Ответ:
+    %p.property
+      - @a.min(2).each do |a|
+        = @a.index(a)
