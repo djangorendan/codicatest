@@ -66,7 +66,7 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'haml'
 gem 'devise'
 gem 'rails_admin', '~> 2.0'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'mini_magick'
 gem "fog-aws"
 gem 'figaro'
